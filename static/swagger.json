@@ -1,0 +1,112 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "SI Project - Azure Computer Vision API's",
+    "title": "Swagger Documentation"
+  },
+  "servers": [
+    {
+      "url": "/"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Computer Vision Services",
+      "description": "Image description, Image object detection, Text reading from image"
+    }
+  ],
+  "paths": {
+    "/describe": {
+      "post": {
+        "summary": "Image Description",
+        "description": "Describes whats happening in the given image",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Image URL",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/image_url"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Invalid Image URL"
+          }
+        }
+      }
+    },
+    "/detect": {
+      "post": {
+        "summary": "Object detection in image",
+        "description": "Describes what objects are there in the given image",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Image URL",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/image_url"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Invalid Image URL"
+          }
+        }
+      }
+    },
+    "/read_text": {
+      "post": {
+        "summary": "Read text from image",
+        "description": "Reads the text from the given image",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Image URL",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/image_url"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Invalid Image URL"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "image_url": {
+      "type": "object",
+      "required": ["url"],
+      "properties": {
+        "url": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
